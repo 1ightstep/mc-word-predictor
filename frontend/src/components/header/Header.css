@@ -1,0 +1,9 @@
+.header {
+  height: 100%;
+  width: 100%;
+}
+
+.header-content {
+  text-align: center;
+  padding: 20px;
+}

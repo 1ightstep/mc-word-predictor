@@ -1,0 +1,12 @@
+.app {
+  height: 100vh;
+  width: 100vw;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.app-content {
+  height: 80%;
+  width: 80%;
+}
