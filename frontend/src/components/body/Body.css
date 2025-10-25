@@ -1,0 +1,39 @@
+.body {
+  height: 100%;
+  width: 100%;
+}
+
+.body-form {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.body-input {
+  width: 100%;
+  padding: 10px;
+  font-size: var(--text-base);
+  border: 2px solid var(--primary-color);
+  border-radius: 5px;
+  margin-bottom: 20px;
+}
+
+.predictions {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.prediction-item {
+  border-bottom: 1px solid var(--secondary-color);
+  padding: 10px 0;
+  color: var(--secondary-color);
+  cursor: pointer;
+  transition: all 0.3s, color 0.3s;
+}
+
+.prediction-item:hover {
+  transform: translateX(10px);
+  color: var(--primary-color);
+  border-color: var(--primary-color);
+}
