@@ -1,11 +1,11 @@
-const fetchApi = async (query) => {
+const fetchApi = async (query, limit) => {
   const apiUrl = process.env.API_URL || "http://localhost:5000";
-  const response = await fetch(`${apiUrl}/api/v1/predict`, {
+  const response = await fetch(`${apiUrl}/api/predict`, {
     method: "POST",
     headers: {
       "Content-Type": "application/json",
     },
-    body: JSON.stringify({ query: query }),
+    body: JSON.stringify({ query: query, limit: limit }),
   });
 
   if (!response.ok) {

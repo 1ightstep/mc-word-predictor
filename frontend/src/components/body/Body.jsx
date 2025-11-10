@@ -12,8 +12,12 @@ const Body = () => {
 
   async function onChange(e) {
     setQuery(e.target.value);
-    const data = await fetchApi(e.target.value);
-    setPredictions([data]);
+    console.log(e.target.value);
+    if (e.target.value.endsWith(" ")) {
+      const data = await fetchApi(e.target.value, 3);
+      console.log(data);
+      setPredictions(data);
+    }
   }
 
   return (
@@ -30,7 +34,7 @@ const Body = () => {
       <div className="predictions">
         {predictions.map((prediction, index) => (
           <h4 key={index} className="prediction-item">
-            {prediction}
+            {prediction.next}
           </h4>
         ))}
       </div>

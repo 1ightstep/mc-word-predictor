@@ -31,9 +31,7 @@ async function trainModelFromFile(filePath) {
 }
 
 connectDB().then(async () => {
-  console.log("Connected to DB. Starting training...");
-  const word = await predictNextWords("<word here>");
-  console.log(word);
+  await trainModelFromFile(path.join(__dirname, "/data/text.txt"));
   await mongoose.disconnect();
   console.log("Training complete. Disconnected from DB.");
   process.exit(0);

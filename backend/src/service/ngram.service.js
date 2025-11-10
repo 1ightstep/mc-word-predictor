@@ -1,6 +1,6 @@
 const NgramModel = require("../models/ngram.model");
 
-async function predictNextWords(context, limit = 5) {
+async function predictNextWords(context, limit = 3) {
   if (!context || !context.trim()) {
     return [];
   }
