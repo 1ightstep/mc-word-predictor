@@ -7,6 +7,7 @@
   display: flex;
   align-items: center;
   justify-content: center;
+  margin-bottom: 50px;
 }
 
 .body-input {
@@ -15,13 +16,18 @@
   font-size: var(--text-base);
   border: 2px solid var(--primary-color);
   border-radius: 5px;
-  margin-bottom: 20px;
+}
+
+.predictions-container {
+  overflow-y: scroll;
+  overflow-x: hidden;
+  height: 250px;
 }
 
 .predictions {
   display: flex;
   flex-direction: column;
-  gap: 10px;
+  gap: 50px;
 }
 
 .prediction-item {
@@ -30,6 +36,7 @@
   color: var(--secondary-color);
   cursor: pointer;
   transition: all 0.3s, color 0.3s;
+  margin: 0;
 }
 
 .prediction-item:hover {

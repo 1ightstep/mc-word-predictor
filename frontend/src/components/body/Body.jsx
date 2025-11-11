@@ -4,7 +4,10 @@ import fetchApi from "../../utils/fetchApi";
 
 const Body = () => {
   const [query, setQuery] = useState("");
-  const [predictions, setPredictions] = useState(["Your predictions go here"]);
+  const [predictions, setPredictions] = useState([
+    { next: "Your predictions go here." },
+    { next: "Start typing to see predictions!" },
+  ]);
 
   function handleSubmit(e) {
     e.preventDefault();
@@ -15,7 +18,6 @@ const Body = () => {
     console.log(e.target.value);
     if (e.target.value.endsWith(" ")) {
       const data = await fetchApi(e.target.value, 3);
-      console.log(data);
       setPredictions(data);
     }
   }
@@ -31,12 +33,14 @@ const Body = () => {
           onChange={onChange}
         />
       </form>
-      <div className="predictions">
-        {predictions.map((prediction, index) => (
-          <h4 key={index} className="prediction-item">
-            {prediction.next}
-          </h4>
-        ))}
+      <div className="predictions-container">
+        <div className="predictions">
+          {predictions.map((prediction, index) => (
+            <h4 key={index} className="prediction-item">
+              {prediction.next}
+            </h4>
+          ))}
+        </div>
       </div>
     </div>
   );
