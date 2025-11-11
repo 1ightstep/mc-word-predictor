@@ -15,7 +15,6 @@ const Body = () => {
 
   async function onChange(e) {
     setQuery(e.target.value);
-    console.log(e.target.value);
     if (e.target.value.endsWith(" ")) {
       const data = await fetchApi(e.target.value, 3);
       setPredictions(data);

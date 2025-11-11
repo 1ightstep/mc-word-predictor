@@ -6,18 +6,21 @@ async function predictNextWords(context, limit = 3) {
   }
 
   let currContext = context.trim().split(" ");
-
+  let predictions = [];
   while (currContext.length > 0) {
     const queryContext = currContext.join(" ");
-    const predictions = await NgramModel.find({ context: queryContext })
+    const currPredictions = await NgramModel.find({ context: queryContext })
       .sort({ frequency: -1 })
       .limit(limit)
-      .select("next frequency -_id");
+      .select("context next frequency -_id");
 
-    if (predictions.length > 0) {
+    if (currPredictions.length >= limit || currContext.length === 1) {
+      predictions.push(...currPredictions);
+      predictions = predictions.slice(0, limit);
       return predictions;
     }
 
+    predictions.push(...currPredictions);
     currContext = currContext.slice(1);
   }
 
